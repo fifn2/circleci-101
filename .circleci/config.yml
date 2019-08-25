@@ -5,4 +5,18 @@
        - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: notacommandd
+       - run: echo "A first hello"
+       - run: sleep 25
+   build:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "A more familiar hi"
+      - run: sleep 15
+workflows:
+  version: 2
+  one_and_two:
+    jobs:
+      - one
+      - two
